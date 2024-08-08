@@ -48,50 +48,6 @@ services:
     ports:
      - 1560:2181
 
-  kafka:
-    image: confluentinc/cp-kafka:latest
-    container_name: kafka
-    depends_on:
-      - zookeeper
-    ports:
-      - 9092:9092
-      - 9093:9093
-    environment:
-      KAFKA_BROKER_ID: 1
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_LISTENERS: PLAINTEXT://localhost:9092,SASL_PLAINTEXT://0.0.0.0:9093
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,SASL_PLAINTEXT://127.0.0.1:9093
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,SASL_PLAINTEXT:SASL_PLAINTEXT
-      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'false'
-      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-      KAFKA_SASL_ENABLED_MECHANISMS: PLAIN
-      KAFKA_SASL_MECHANISM_INTER_BROKER_PROTOCOL: PLAIN
-      KAFKA_OPTS: "-Djava.security.auth.login.config=/etc/kafka/kafka_jaas.conf"
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-    volumes:
-      - ./kafka_server_jaas.conf:/etc/kafka/kafka_jaas.conf
-      - ./client.properties:/etc/kafka/client.properties
-      - kafka-data-sasl:/var/lib/kafka/data:rw
-      - kafka-logs-sasl:/var/lib/kafka-logs:rw
-volumes:
-  kafka-data-sasl:
-  kafka-logs-sasl:
-  zookeeper-data-sasl:
-  zookeeper-logs-sasl:
-
-  clickhouse:
-    image: clickhouse/clickhouse-server
-    container_name: clickhouse
-    ports:
-      - '8123:8123'
-      - '9000:9000'
-    volumes:
-      - ./clickhouse_conf/users.xml:/etc/clickhouse-server/users.xml
-      - ./clickhouse_conf/init.sql:/docker-entrypoint-initdb.d/init.sql
-      - clickhouse-data:/var/lib/clickhouse
-    ulimits:
-      nofile: 262144
-
 networks:
   default:
     name: spark_network
@@ -101,4 +57,3 @@ volumes:
   kafka-logs-sasl:
   zookeeper-data-sasl:
   zookeeper-logs-sasl:
-  clickhouse-data:

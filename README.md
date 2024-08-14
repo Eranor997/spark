@@ -17,12 +17,11 @@
 > spark-submit --master spark://spark-master:7077 --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0 --executor-cores 1 --conf spark.driver.extraJavaOptions="-Divy.cache.dir=/tmp -Divy.home=/tmp" /opt/spark/Streams/shkDefect_verdict_sync.py
 
 Терминал
-![image](https://github.com/user-attachments/assets/9cf78a5a-d7ba-45da-bcac-7dfeac8eaeca)
-![image](https://github.com/user-attachments/assets/afb07cb6-10ea-4b1d-b208-ec98a90aecad)
+![image](https://github.com/user-attachments/assets/45257bf0-ec67-41cd-baa6-03f167f8571d)
+![image](https://github.com/user-attachments/assets/6516b67d-866c-498e-b2f4-c8e62fc221af)
 
 Проверяю Спарк
-![image](https://github.com/user-attachments/assets/fc4f07f2-ea41-4ffd-ac97-3864abece109)
-
+![image](https://github.com/user-attachments/assets/353658b9-0b3a-46c8-a8ff-0efd4daeca94)
 
 Проверяю итоговую таблицу
 ![image](https://github.com/user-attachments/assets/82c9c492-33b4-4f90-a866-9c25ca82c688)

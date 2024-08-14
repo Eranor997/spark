@@ -1,0 +1,11 @@
+services:
+  clickhouse-server:
+    image: yandex/clickhouse-server
+    container_name: clickhouse-server
+    ports:
+      - '8123:8123'
+      - '10.109.221.34:8000:8000'
+    environment:
+      - CLICKHOUSE_USER=default
+      - CLICKHOUSE_PASSWORD=default
+      - CLICKHOUSE_DB=tmp

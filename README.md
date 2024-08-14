@@ -10,8 +10,9 @@
 
 Устанавливаю недостающее:
 > pip install clickhouse_driver clickhouse_cityhash lz4 pandas
+
 > pip install py4j
-> 
+
 Запускаю задание:
 > spark-submit --master spark://spark-master:7077 --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0 --executor-cores 1 --conf spark.driver.extraJavaOptions="-Divy.cache.dir=/tmp -Divy.home=/tmp" /opt/spark/Streams/shkDefect_verdict_sync.py
 

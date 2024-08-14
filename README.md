@@ -10,4 +10,4 @@ spark-submit --master spark://spark-master:7077
 --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0
 --executor-cores 1
 --conf spark.driver.extraJavaOptions="-Divy.cache.dir=/tmp -Divy.home=/tmp"
-"E:\Work\projects\Spark\shkDefect_verdict_sync.py"
+/opt/spark/Streams/shkDefect_verdict_sync.py
